@@ -11,7 +11,8 @@ import {
   ShieldCheck, 
   Eye, 
   CheckCircle2,
-  FileCheck
+  FileCheck,
+  Video
 } from 'lucide-react';
 import { MerchantStats, Opportunity } from '../types.js';
 
@@ -21,6 +22,7 @@ interface DashboardViewProps {
   onViewEvidence: (opportunity: Opportunity) => void;
   onCreateCampaign: (opportunity: Opportunity) => void;
   onNavigateToPipeline: () => void;
+  onNavigateToPitch: () => void;
   onRefreshOpportunities: () => void;
   isAnalyzing: boolean;
 }
@@ -31,6 +33,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   onViewEvidence,
   onCreateCampaign,
   onNavigateToPipeline,
+  onNavigateToPitch,
   onRefreshOpportunities,
   isAnalyzing
 }) => {
@@ -54,18 +57,25 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </p>
           <div className="pt-2 flex flex-wrap items-center gap-3">
             <button
+              onClick={onNavigateToPitch}
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-bold text-sm rounded-xl transition shadow-lg shadow-emerald-500/25"
+            >
+              <Video className="w-4 h-4" />
+              <span>Watch Pitch Video (5 min)</span>
+            </button>
+            <button
               onClick={onRefreshOpportunities}
               disabled={isAnalyzing}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-sm rounded-xl transition shadow-md shadow-emerald-500/20 disabled:opacity-50"
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm rounded-xl border border-slate-600 transition disabled:opacity-50"
             >
               <Sparkles className={`w-4 h-4 ${isAnalyzing ? 'animate-spin' : ''}`} />
               <span>{isAnalyzing ? 'Analyzing Merchant Data...' : 'Find Growth Opportunities'}</span>
             </button>
             <button
               onClick={onNavigateToPipeline}
-              className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-sm rounded-xl border border-slate-600 transition"
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-900/80 hover:bg-slate-800 text-slate-300 font-medium text-sm rounded-xl border border-slate-700 transition"
             >
-              <span>View Multi-Agent Architecture</span>
+              <span>Multi-Agent Flow</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

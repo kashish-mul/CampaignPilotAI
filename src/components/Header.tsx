@@ -9,7 +9,8 @@ import {
   FileText, 
   ShieldCheck, 
   Sparkles,
-  RefreshCw
+  RefreshCw,
+  Video
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -29,6 +30,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { id: 'pitch', label: 'Pitch Video 🎬', icon: Video },
     { id: 'opportunities', label: 'Opportunities', icon: Target },
     { id: 'pipeline', label: 'Multi-Agent Pipeline', icon: Bot },
     { 
@@ -66,6 +68,15 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Status Badges & Controls */}
           <div className="flex items-center gap-3">
+            <button
+              onClick={() => setCurrentTab('pitch')}
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 rounded-lg border border-emerald-500/30 transition"
+              title="Watch Kashish's 5-minute Pitch Video"
+            >
+              <Video className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Pitch Video 🎬</span>
+            </button>
+
             <button
               onClick={onRefreshOpportunities}
               disabled={isRefreshing}

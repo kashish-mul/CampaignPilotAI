@@ -7,6 +7,7 @@ import { ApprovalsView } from './components/ApprovalsView.js';
 import { RazorpaySandboxView } from './components/RazorpaySandboxView.js';
 import { AuditTrailView } from './components/AuditTrailView.js';
 import { SettingsView } from './components/SettingsView.js';
+import { PitchVideoStudio } from './components/PitchVideoStudio.js';
 
 import { 
   MerchantStats, 
@@ -168,9 +169,14 @@ export default function App() {
                 }}
                 onCreateCampaign={handleLaunchCampaignFromOpportunity}
                 onNavigateToPipeline={() => setCurrentTab('pipeline')}
+                onNavigateToPitch={() => setCurrentTab('pitch')}
                 onRefreshOpportunities={handleRefreshOpportunities}
                 isAnalyzing={isRefreshingOpps}
               />
+            )}
+
+            {currentTab === 'pitch' && (
+              <PitchVideoStudio onNavigateToTab={(tab) => setCurrentTab(tab)} />
             )}
 
             {currentTab === 'opportunities' && (

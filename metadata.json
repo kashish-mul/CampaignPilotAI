@@ -2,6 +2,7 @@
   "name": "CampaignPilot AI",
   "description": "An explainable, self-verifying AI agent that discovers merchant revenue opportunities, proposes bounded campaigns, obtains merchant approval, executes approved actions through Razorpay Test Mode, and records every decision in an auditable trail.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
-
